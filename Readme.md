@@ -5,9 +5,20 @@ This project is a simulation of the board game "For Sale". It includes several A
 
 ## AI Players
 ### Implemented
-- RandomBot: This player randomly selects a bid in the buying phase and a property to sell in the selling phase.
-- GreedyBot: This player always tries to buy the cheapest available property and sell the least valuable property.
+#### RandomBot: 
+  This player randomly selects a bid in the buying phase and a property to sell in the selling phase.<br>
+  
+*What are the rules, what am i even doing here? i guess i bet this much?*
+
+#### GreedyBot
+This player always tries to buy the cheapest available property and sell the least 
+valuable property. <br>
+
+*I WANT EVERYTHING AND STOP AT NOTHING.... WARNING. two of these faceing off gets hilarious.*
+
+
 ### Planned/in progress
+- BraveCheapskateBot: This player will buy until outbid, but only the minimum. Brave guy never gives up though
 - OptimalBot: This player uses a strategy that is designed to maximize its final score, based on certain assumptions about the other players' behavior.
 
 ## Getting Started

@@ -1,8 +1,10 @@
 import random
+import pandas as pd
 
 from Bots.Super.PlayerSuper import Player
 import Bots.GreedyBot
 import Bots.RandomBot
+import Bots.CheapskateBot
 
 class ForSaleGame:
     def __init__(self, players):
@@ -34,6 +36,13 @@ class ForSaleGame:
         self.current_checks = []
         self.phase = "buying"
         self.round = 0
+        self.history = {player: [] for player in self.players}
+
+    def record_state(self):
+        for player in self.players:
+            player_index = self.players.index(player) + 1
+            self.history[player].append((self.round, self.phase, player.money, list(player.properties), player_index))
+
 
     def setup_phase1(self):
         num_properties = len(self.players)
@@ -74,11 +83,12 @@ class ForSaleGame:
         remaining_player.properties.append(highest_property)
         self.current_properties.remove(highest_property)
         self.round = self.round + 1
+        self.record_state()
 
     def setup_phase2(self):
-        self.round = 0
         random.shuffle(self.currency_deck)
         self.current_currency = []
+        self.phase = 'selling'
 
     def selling_phase(self):
         # Turn up the number of Currency Cards equal to the number of players
@@ -104,6 +114,7 @@ class ForSaleGame:
         # Clear the current currency
         self.current_currency = []
         self.round = self.round + 1
+        self.record_state()
 
 
 def play_game(player_setup):
@@ -114,16 +125,36 @@ def play_game(player_setup):
     game = ForSaleGame(players)
 
     while game.property_deck:  # Play until the deck of properties runs out
-        print('Auction phase: ' + (str(game.round + 1)))
         game.setup_phase1()
+        print('Auction phase: ' + (str(game.round + 1)))
         game.auction_phase1()
     
     while game.currency_deck: # Play until the deck of checks runs out
-        print('Selling phase: ' + (str(game.round + 1)))
         game.setup_phase2()
+        print('Selling phase: ' + (str(game.round + 1)))
         game.selling_phase()
 
 
+    # Initialize the winner and highest score
+    winner = None
+    highest_score = 0
+
+    final_scores = {}
     for i, player in enumerate(game.players):
+        final_scores[f"Player {i+1} ({player.__class__.__name__})"] = player.money
         print(f"Player {i+1} ({player.__class__.__name__}) ended with ${player.money} and properties {sorted(player.properties)}")
+        if player.money > highest_score:
+            highest_score = player.money
+            winner = f"Player {i+1} ({player.__class__.__name__})"
+            winnertype = player.__class__.__name__
+    print('Winner was ' + winner)
+    
+    # Transform the history into a DataFrame
+    rows = []
+    for player, history in game.history.items():
+        for round, phase, money, properties, player_index in history:
+            rows.append({'Player': str(player.__class__.__name__), 'phase': str(phase), 'Round': round, 'Money': money, 'Properties': properties, 'Player Index': player_index})
+    df = pd.DataFrame(rows)
+
+    return winner, winnertype, final_scores, df
 

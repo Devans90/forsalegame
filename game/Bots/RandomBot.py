@@ -1,6 +1,8 @@
 from Bots.Super.PlayerSuper import Player
 import random
 
+## What are the rules, what am i even doing here? i guess i bet this much?  
+
 class RandomBot(Player):
     def make_bid(self, properties, highest_bid):
         # Calculate the number of increments of $1,000 the bot can afford
