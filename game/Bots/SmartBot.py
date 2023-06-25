@@ -5,7 +5,7 @@ from Bots.Super.PlayerSuper import Player
 # In the selling phase, it sells the property closest to the median of its owned properties.
 
 class SmartBot(Player):
-    def make_bid(self, properties, highest_bid):
+    def make_bid(self, properties, highest_bid, game):
         # Calculate maximum bid as 50% of remaining money
         max_bid = 0.5 * self.money
         if highest_bid + 1000 < max_bid:  # Check if they can afford to bid higher within their limit

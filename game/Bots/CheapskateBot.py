@@ -4,7 +4,7 @@ import random
 # I wanna play, but i dont want to spend money....
 
 class CheapskateBot(Player):
-    def make_bid(self, properties, highest_bid):
+    def make_bid(self, properties, highest_bid, game):
         # Calculate maximum bid as 25% of remaining money or 2000, whichever is greater
         max_bid = max(0.25 * self.money, 2000)
         if highest_bid + 1000 < max_bid:  # Check if they can afford to bid higher within their limit

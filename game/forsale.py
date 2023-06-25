@@ -56,7 +56,7 @@ class ForSaleGame:
             print("Player:", type(current_player).__name__)
             print("Current Properties:", self.current_properties)
 
-            bid = current_player.make_bid(self.current_properties, max(bids.values()))
+            bid = current_player.make_bid(self.current_properties, max(bids.values()), self)
             if bid is not None:
                 if bid % 1000 != 0:
                     print("Invalid bid! Bids must be multiples of $1,000.")

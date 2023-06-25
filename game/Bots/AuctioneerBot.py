@@ -10,7 +10,7 @@ from Bots.Super.PlayerSuper import Player
 # In the selling phase, it sells the property that deviates the most from the expected value of the remaining checks in the game.
 
 class AuctioneerBot(Player):
-    def make_bid(self, properties, highest_bid):
+    def make_bid(self, properties, highest_bid, game):
         # If the probability of getting a high quality property is high, bid up to 70% of money
         # Otherwise, bid up to 30% of money
         quality_threshold = 15  # Adjust this threshold based on the game's property range

@@ -3,7 +3,7 @@ from Bots.Super.PlayerSuper import Player
 ## The greediest of bots.  HE WANTS EVERYTHING AND STOPS AT NOTHING.... WARNING. two of these faceing off gets hilarious.
 
 class GreedyBot(Player):
-    def make_bid(self, properties, highest_bid):
+    def make_bid(self, properties, highest_bid, game):
         if self.money > highest_bid:
             return highest_bid + 1000  # Always try to bid the minimum amount necessary
         else:

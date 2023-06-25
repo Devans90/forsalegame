@@ -3,7 +3,7 @@ class Player:
         self.money = starting_money
         self.properties = []
 
-    def make_bid(self, properties, highest_bid):
+    def make_bid(self, properties, highest_bid, game):
         pass  # To be implemented in subclasses
 
     def buy_property(self, game):

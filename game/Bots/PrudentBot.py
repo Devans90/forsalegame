@@ -9,7 +9,7 @@ from Bots.Super.PlayerSuper import Player
 # In the selling phase, it sells the property closest to the mean of its owned properties.
 
 class PrudentBot(Player):
-    def make_bid(self, properties, highest_bid):
+    def make_bid(self, properties, highest_bid, game):
         # If high quality properties are available, bid up to 60% of money
         # Otherwise, bid up to 40% of money
         quality_threshold = 15  # Adjust this threshold based on the game's property range

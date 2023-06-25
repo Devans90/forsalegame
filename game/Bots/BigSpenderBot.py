@@ -4,7 +4,7 @@ from Bots.Super.PlayerSuper import Player
 # During bidding, it bids as high as it can (up to 75% of its remaining money) as long as it's above the highest current bid
 
 class BigSpenderBot(Player):
-    def make_bid(self, properties, highest_bid):
+    def make_bid(self, properties, highest_bid, game):
         # Calculate maximum bid as 75% of remaining money or 2000, whichever is greater
         max_bid = max(0.75 * self.money, 2000)
         if highest_bid + 1000 < max_bid:  # Check if they can afford to bid higher within their limit

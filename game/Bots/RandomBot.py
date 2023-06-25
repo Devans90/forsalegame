@@ -4,7 +4,7 @@ import random
 ## What are the rules, what am i even doing here? i guess i bet this much?  
 
 class RandomBot(Player):
-    def make_bid(self, properties, highest_bid):
+    def make_bid(self, properties, highest_bid, game):
         # Calculate the number of increments of $1,000 the bot can afford
         max_increments = self.money // 1000
         min_increments = (highest_bid // 1000) + 1
