@@ -18,7 +18,7 @@ class GreedyBot(Player):
         self.properties.append(chosen_property)
         game.current_properties.remove(chosen_property)
 
-    def sell_property(self):
+    def sell_property(self, game):
         # Sell the least valuable property first
         property_card = min(self.properties)
         return property_card

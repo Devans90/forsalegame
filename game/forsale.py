@@ -1,10 +1,6 @@
 import random
 import pandas as pd
 
-from Bots.Super.PlayerSuper import Player
-import Bots.GreedyBot
-import Bots.RandomBot
-import Bots.CheapskateBot
 
 class ForSaleGame:
     def __init__(self, players):
@@ -97,7 +93,7 @@ class ForSaleGame:
 
         property_bids = []
         for player in self.players:
-            property_card = player.sell_property()
+            property_card = player.sell_property(self)
             if property_card not in player.properties:
                 raise ValueError("Player attempted to sell a property they do not own")
             property_bids.append((property_card, player))
@@ -118,6 +114,11 @@ class ForSaleGame:
 
 
 def play_game(player_setup):
+
+    total_players = sum(player_setup.values())
+    if not 3 <= total_players <= 6:
+        raise ValueError("Invalid number of players. The game requires between 3 and 6 players.")
+
     players = []
     for player_class, quantity in player_setup.items():
         players.extend([player_class(14000) for _ in range(quantity)])
@@ -153,7 +154,7 @@ def play_game(player_setup):
     rows = []
     for player, history in game.history.items():
         for round, phase, money, properties, player_index in history:
-            rows.append({'Player': str(player.__class__.__name__), 'phase': str(phase), 'Round': round, 'Money': money, 'Properties': properties, 'Player Index': player_index})
+            rows.append({'Player': str(player.__class__.__name__), 'phase': str(phase), 'Round': round, 'Money': money, 'Properties': properties, 'Player Index': player_index, 'Num Players': total_players})
     df = pd.DataFrame(rows)
 
     return winner, winnertype, final_scores, df

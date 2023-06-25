@@ -24,7 +24,7 @@ class RandomBot(Player):
         self.properties.append(chosen_property)
         game.current_properties.remove(chosen_property)
 
-    def sell_property(self):
+    def sell_property(self, game):
         # Choose a random property to sell
         property_card = random.choice(self.properties)
         return property_card
