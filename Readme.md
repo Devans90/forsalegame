@@ -1,5 +1,9 @@
 # For Sale Game Simulator
 
+![Alt text](image-5.png)
+
+![Alt text](image-6.png)
+
 ## Overview
 This project is a simulation of the board game "For Sale". It includes several AI players with different strategies that can play against each other. The game consists of two phases: the buying phase, where players bid on properties, and the selling phase, where players sell their properties for the highest possible price.
 
