@@ -4,8 +4,10 @@
 This project is a simulation of the board game "For Sale". It includes several AI players with different strategies that can play against each other. The game consists of two phases: the buying phase, where players bid on properties, and the selling phase, where players sell their properties for the highest possible price.
 
 ## AI Players
+# Implemented
 - RandomBot: This player randomly selects a bid in the buying phase and a property to sell in the selling phase.
 - GreedyBot: This player always tries to buy the cheapest available property and sell the least valuable property.
+# Planned/in progress
 - OptimalBot: This player uses a strategy that is designed to maximize its final score, based on certain assumptions about the other players' behavior.
 
 ## Getting Started
