@@ -3,7 +3,7 @@
 ## Overview
 This project is a simulation of the board game "For Sale". It includes several AI players with different strategies that can play against each other. The game consists of two phases: the buying phase, where players bid on properties, and the selling phase, where players sell their properties for the highest possible price.
 
-![Alt text](image-2.png)
+![Alt text](image-3.png)
 
 ## AI Players
 ### Implemented
@@ -54,8 +54,13 @@ I only bids up to 30% of my remaining money.
 *Going once, going twice, SOLD to that cluster of Ram over there*
 
 
-## Getting Started
+## Results
 
+![Alt text](image-1.png)
+
+![Alt text](image-2.png)
+
+![Alt text](image-4.png)
 
 ## Files in This Repository
 RunGame.py: This is the main file to run the game.
