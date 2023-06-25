@@ -12,19 +12,10 @@ This project is a simulation of the board game "For Sale". It includes several A
 
 ## Getting Started
 
-### Prerequisites
-- Python 3.x
-- (Optional) Any additional packages if used in your project
-
-### Installation
-- Clone this repository
-- Navigate to the project directory
-- Run: RunGame.py
 
 ## Files in This Repository
-main.py: This is the main file to run the game.
-game.py: This contains the Game class, which handles the game logic.
-player.py: This contains the Player class and several subclasses that implement different bidding strategies.
+RunGame.py: This is the main file to run the game.
+forsale.py: This contains the Game class, which handles the game logic. TODO split out the players
 
 ## Built With
 Python
