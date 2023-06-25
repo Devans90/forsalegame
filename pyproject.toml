@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "forsalegame"
+version = "0.1"
+description = "Base Package for building and simulating the board game 'For Sale'"
+authors = ["Devans90 <devans8819@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
