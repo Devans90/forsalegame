@@ -35,7 +35,7 @@ def run_multiple_games(n_games, bots):
     combined_df = pd.concat(all_game_data, ignore_index=True)
     return combined_df
 
-combined_df = run_multiple_games(100, bots = [GreedyBot, CheapskateBot, RandomBot, BigSpenderBot, SmartBot, PrudentBot, AuctioneerBot])
+combined_df = run_multiple_games(10000, bots = [GreedyBot, CheapskateBot, RandomBot, BigSpenderBot, SmartBot, PrudentBot, AuctioneerBot])
 
 
 
@@ -50,5 +50,5 @@ sns.violinplot(data=final_money, x='Player', y='Money')
 plt.title('Distribution of Final Money by Bot')
 plt.show()
 
-# combined_df.to_csv('Data.csv')
+combined_df.to_csv('Data.csv')
 pass
